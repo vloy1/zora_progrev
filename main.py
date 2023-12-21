@@ -3,13 +3,10 @@ import random
 import multiprocessing
 
 from modules.standart import *
-from modules.brigh import brigh
 from modules.mint import mint_erc721
 from modules.create_collection import create_collection_
 from modules.edit_collection import edit_collection_
 from modules.edit_collection_stile import edit_collection_style
-from modules.transfer_s_okx_v_arb import okx_withdraw
-from modules.merkly import merkly_
 
 time_akks = [60,80] #задержка между аками
 time_potok = 10 # задержка между запуской потоков

@@ -5,7 +5,7 @@ import requests
 import datetime 
 import json
 
-proxy= {'https': 'http://kVqHD7sC:G19CZLra@154.196.68.77:64968','http': 'http://kVqHD7sC:G19CZLra@154.196.68.77:64968'}
+proxy= {'https': 'http://kVqHD7sC:G19CZLra@154.195.99.38:64696','http': 'http://kVqHD7sC:G19CZLra@154.195.99.38:64696'}
 
 class Chain:
 
