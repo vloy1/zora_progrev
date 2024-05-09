@@ -5,7 +5,7 @@ import requests
 import datetime 
 import json
 
-proxy= {'https': 'http://kVqHD7sC:G19CZLra@154.195.99.38:64696','http': 'http://kVqHD7sC:G19CZLra@154.195.99.38:64696'}
+proxy= {'https': 'http://kVqHD7sC:G19CZLra@154.195.184.5:64100','http': 'http://kVqHD7sC:G19CZLra@154.195.184.5:64100'}
 
 class Chain:
 
@@ -61,6 +61,16 @@ def status(tx_hash,wal,w3 ,uts = 3):
             else:
                 print('и request не спас')
                 return 0
+
+def checker_v(adress_mint):
+    try:
+        req = requests.get(url=f'https://explorer.zora.energy/api/v2/addresses/{adress_mint}',proxies=proxy)
+        if '1155' in req.json()['implementation_name']:
+            return 1155
+        else: 
+            return 721
+    except:
+        1
         
 def res_balance(adres,set,min_token = 0):
     w3 = Web3(Web3.HTTPProvider(set.rpc)) 
@@ -89,6 +99,14 @@ def wallett(file):
 def wallett_del(file):
     ish = open(file,'r').readlines()
     del ish[00]
+    with open(file, "w") as file:
+        file.writelines(ish)
+
+def del_false_collection(file,collection):
+    ish = open(file,'r').readlines()
+    for one_ in ish:
+        if collection in one_:
+            ish.remove(one_)
     with open(file, "w") as file:
         file.writelines(ish)
 
