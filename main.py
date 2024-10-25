@@ -11,7 +11,7 @@ from modules.transfer_s_okx_v_arb import okx_withdraw
 from modules.merkly import merkly_
 
 amount_dep = [0.002,0.0022]
-time_akks = [6,80] #задержка между аками
+time_akks = [6,10] #задержка между аками
 time_potok = 1 # задержка между запуской потоков
 max_gas = 105 # лимит газа для транзакций 
 colection = 'zora.txt' # адреса колекций для минта
@@ -19,16 +19,16 @@ name_colection = 'name.txt' # имена колекций
 foto_colection = 'foto.txt' # ссылки на картинка для создания колекции 
 description_file = 'description.txt' # описание для колекций
 file_wal_1 = 'wal.txt' # файл аков которые будем прогонять
-n_potok = 1 # количество потоков
-create_colections = False #
-mint_ = True
+n_potok = 5 # количество потоков
+create_colections = True #
+mint_ = False
 edit_collection___ = False  
 
 OKX_KEYS = {
     'account_1' : {
-        'api_key'   : '3f25c2e6-ab66-45bd-8452-e19c235df717',
-        'api_secret': 'C4D80301C1D93BAEF83CD5F6D53954E6',
-        'password'  : '849319849Pq!',
+        'api_key'   : '',
+        'api_secret': '',
+        'password'  : '!',
     }
 }
 
@@ -112,9 +112,9 @@ def run(wal:Wal):
 def main(q):
     while True:
         t = time.time()
-        time.sleep(q)
+        time.sleep(q+2)
         prvat_key = wallett(file_wal_1)
-        #wallett_del(file_wal_1)
+        wallett_del(file_wal_1)
         wal = aka(prvat_key,eth)
         print(f'{wal.adress} start')
         #try:
